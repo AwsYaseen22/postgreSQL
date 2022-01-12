@@ -46,6 +46,8 @@ ALTER DATABASE database_name RENAME TO new_database_name;
 
 to add constraint:
 ALTER TABLE table_name ADD COLUMN column_name VARCHAR(30) NOT NULL;
+ALTER TABLE table_name ADD UNIQUE(column_name);
+ALTER TABLE table_name ALTER COLUMN column_name SET NOT NULL;
 
 to edit values in row:
 UPDATE table_name SET column_name=new_value WHERE condition;
@@ -58,3 +60,23 @@ ALTER TABLE table_name ADD PRIMARY KEY(column_name);
 
 to remove constraint like primary key:
 ALTER TABLE table_name DROP CONSTRAINT constraint_name;
+
+to add a foreign key to table reference another table:
+ALTER TABLE table_name ADD COLUMN column_name DATATYPE REFERENCES referenced_table_name(referenced_column_name);
+
+show specific data with WHERE:
+SELECT columns FROM table_name WHERE condition;
+
+set an existing column as a foreign key:
+ALTER TABLE table_name ADD FOREIGN KEY(column_name) REFERENCES referenced_table(referenced_column);
+
+to add a foreign key to join table that join two tables for the many to many relation:
+ALTER TABLE table_name ADD PRIMARY KEY(column1, column2);
+
+get all the data from multiple joint tables with a JOIN command:
+SELECT columns FROM table_1 FULL JOIN table_2 ON table_1.primary_key_column = table_2.foreign_key_column;
+
+get the data from many to many tables joined by the junction table:
+SELECT columns FROM junction_table
+FULL JOIN table_1 ON junction_table.foreign_key_column = table_1.primary_key_column
+FULL JOIN table_2 ON junction_table.foreign_key_column = table_2.primary_key_column;
