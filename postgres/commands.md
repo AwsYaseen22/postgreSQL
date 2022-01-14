@@ -80,3 +80,15 @@ get the data from many to many tables joined by the junction table:
 SELECT columns FROM junction_table
 FULL JOIN table_1 ON junction_table.foreign_key_column = table_1.primary_key_column
 FULL JOIN table_2 ON junction_table.foreign_key_column = table_2.primary_key_column;
+
+#####################################################################################
+very important note:
+Instructions
+For this project, you need to log in to PostgreSQL with psql to create your database. Do that by entering psql --username=freecodecamp --dbname=postgres in the terminal. Be sure to get creative, and have fun!
+
+Here's some ideas for other column and table names: description, has_life, is_spherical, age_in_millions_of_years, planet_types, galaxy_types, distance_from_earth.
+
+If you leave your virtual machine, your database will not be saved. You can make a dump of it by entering pg_dump --clean --create --inserts --username=freecodecamp universe > universe.sql in a terminal (not the psql one). Make sure you are in the project folder when entering the command. It will save the commands to rebuild your database to universe.sql. Then, save the file somewhere. You can rebuild it by entering psql -U postgres < universe.sql in a terminal if you enter the command where the .sql file is.
+
+Don't forget to connect to your database after you create it 😄
+#####################################################################################
