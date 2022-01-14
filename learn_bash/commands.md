@@ -65,3 +65,9 @@ comment multi line:
 line 1
 line 2
 '
+
+to print all environment variables:
+printenv
+
+to view all variables in the shell:
+declare -p
